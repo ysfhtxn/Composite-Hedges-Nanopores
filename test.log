@@ -1,0 +1,539 @@
+easy-cluster /data/biolab-nvme-pool1/zhaoxy/guppy_basecalled/smeseqs_final/merge_smeseqs_time/merge_0_0_120mins.fasta clusterRes tmp --min-seq-id 0.9 -c 0.85 --cov-mode 0 --rescore-mode 3 --threads 24 
+
+MMseqs Version:                     	13.45111
+Substitution matrix                 	nucl:nucleotide.out,aa:blosum62.out
+Seed substitution matrix            	nucl:nucleotide.out,aa:VTML80.out
+Sensitivity                         	4
+k-mer length                        	0
+k-score                             	2147483647
+Alphabet size                       	nucl:5,aa:21
+Max sequence length                 	65535
+Max results per query               	20
+Split database                      	0
+Split mode                          	2
+Split memory limit                  	0
+Coverage threshold                  	0.85
+Coverage mode                       	0
+Compositional bias                  	1
+Diagonal scoring                    	true
+Exact k-mer matching                	0
+Mask residues                       	1
+Mask lower case residues            	0
+Minimum diagonal score              	15
+Include identical seq. id.          	false
+Spaced k-mers                       	1
+Preload mode                        	0
+Pseudo count a                      	1
+Pseudo count b                      	1.5
+Spaced k-mer pattern                	
+Local temporary path                	
+Threads                             	24
+Compressed                          	0
+Verbosity                           	3
+Add backtrace                       	false
+Alignment mode                      	3
+Alignment mode                      	0
+Allow wrapped scoring               	false
+E-value threshold                   	0.001
+Seq. id. threshold                  	0.9
+Min alignment length                	0
+Seq. id. mode                       	0
+Alternative alignments              	0
+Max reject                          	2147483647
+Max accept                          	2147483647
+Score bias                          	0
+Realign hits                        	false
+Realign score bias                  	-0.2
+Realign max seqs                    	2147483647
+Gap open cost                       	nucl:5,aa:11
+Gap extension cost                  	nucl:2,aa:1
+Zdrop                               	40
+Rescore mode                        	3
+Remove hits by seq. id. and coverage	false
+Sort results                        	0
+Cluster mode                        	0
+Max connected component depth       	1000
+Similarity type                     	2
+Single step clustering              	false
+Cascaded clustering steps           	3
+Cluster reassign                    	false
+Remove temporary files              	true
+Force restart with latest tmp       	false
+MPI runner                          	
+k-mers per sequence                 	21
+Scale k-mers per sequence           	nucl:0.200,aa:0.000
+Adjust k-mer length                 	false
+Shift hash                          	67
+Include only extendable             	false
+Skip repeating k-mers               	false
+Database type                       	0
+Shuffle input database              	true
+Createdb mode                       	1
+Write lookup file                   	0
+Offset of numeric ids               	0
+
+createdb /data/biolab-nvme-pool1/zhaoxy/guppy_basecalled/smeseqs_final/merge_smeseqs_time/merge_0_0_120mins.fasta tmp/15103724935212117621/input --dbtype 0 --shuffle 1 --createdb-mode 1 --write-lookup 0 --id-offset 0 --compressed 0 -v 3 
+
+Shuffle database cannot be combined with --createdb-mode 0
+We recompute with --shuffle 0
+Converting sequences
+[
+Time for merging to input_h: 0h 0m 0s 0ms
+Time for merging to input: 0h 0m 0s 0ms
+Database type: Nucleotide
+Time for processing: 0h 0m 0s 5ms
+Create directory tmp/15103724935212117621/clu_tmp
+cluster tmp/15103724935212117621/input tmp/15103724935212117621/clu tmp/15103724935212117621/clu_tmp --max-seqs 20 -c 0.85 --cov-mode 0 --spaced-kmer-mode 1 --threads 24 --alignment-mode 3 -e 0.001 --min-seq-id 0.9 --rescore-mode 3 --remove-tmp-files 1 
+
+Set cluster sensitivity to -s 1.000000
+Set cluster mode SET COVER
+Set cluster iterations to 1
+linclust tmp/15103724935212117621/input tmp/15103724935212117621/clu_tmp/8781821343778568685/clu_redundancy tmp/15103724935212117621/clu_tmp/8781821343778568685/linclust --cluster-mode 0 --max-iterations 1000 --similarity-type 2 --threads 24 --compressed 0 -v 3 --sub-mat nucl:nucleotide.out,aa:blosum62.out -a 0 --alignment-mode 3 --alignment-output-mode 0 --wrapped-scoring 0 -e 0.001 --min-seq-id 0.9 --min-aln-len 0 --seq-id-mode 0 --alt-ali 0 -c 0.85 --cov-mode 0 --max-seq-len 10000 --comp-bias-corr 0 --max-rejected 2147483647 --max-accept 2147483647 --add-self-matches 0 --db-load-mode 0 --pca 1 --pcb 1.5 --score-bias 0 --realign 0 --realign-score-bias -0.2 --realign-max-seqs 2147483647 --gap-open nucl:5,aa:11 --gap-extend nucl:2,aa:1 --zdrop 40 --alph-size nucl:5,aa:21 --kmer-per-seq 21 --spaced-kmer-mode 1 --kmer-per-seq-scale nucl:0.200,aa:0.000 --adjust-kmer-len 0 --mask 1 --mask-lower-case 0 -k 0 --hash-shift 67 --split-memory-limit 0 --include-only-extendable 0 --ignore-multi-kmer 0 --rescore-mode 3 --filter-hits 0 --sort-results 0 --remove-tmp-files 1 --force-reuse 0 
+
+kmermatcher tmp/15103724935212117621/input tmp/15103724935212117621/clu_tmp/8781821343778568685/linclust/1450027844053627469/pref --sub-mat nucl:nucleotide.out,aa:blosum62.out --alph-size nucl:5,aa:21 --min-seq-id 0.9 --kmer-per-seq 21 --spaced-kmer-mode 1 --kmer-per-seq-scale nucl:0.200,aa:0.000 --adjust-kmer-len 0 --mask 1 --mask-lower-case 0 --cov-mode 0 -k 0 -c 0.85 --max-seq-len 10000 --hash-shift 67 --split-memory-limit 0 --include-only-extendable 0 --ignore-multi-kmer 0 --threads 24 --compressed 0 -v 3 
+
+kmermatcher tmp/15103724935212117621/input tmp/15103724935212117621/clu_tmp/8781821343778568685/linclust/1450027844053627469/pref --sub-mat nucl:nucleotide.out,aa:blosum62.out --alph-size nucl:5,aa:21 --min-seq-id 0.9 --kmer-per-seq 21 --spaced-kmer-mode 1 --kmer-per-seq-scale nucl:0.200,aa:0.000 --adjust-kmer-len 0 --mask 1 --mask-lower-case 0 --cov-mode 0 -k 0 -c 0.85 --max-seq-len 10000 --hash-shift 67 --split-memory-limit 0 --include-only-extendable 0 --ignore-multi-kmer 0 --threads 24 --compressed 0 -v 3 
+
+Database size: 7773 type: Nucleotide
+
+Generate k-mers list for 1 split
+[=================================================================] 7.77K 0s 18ms
+
+Adjusted k-mer length 17
+Sort kmer 0h 0m 0s 4ms
+Sort by rep. sequence 0h 0m 0s 3ms
+Time for fill: 0h 0m 0s 3ms
+Time for merging to pref: 0h 0m 0s 0ms
+Time for processing: 0h 0m 0s 38ms
+rescorediagonal tmp/15103724935212117621/input tmp/15103724935212117621/input tmp/15103724935212117621/clu_tmp/8781821343778568685/linclust/1450027844053627469/pref tmp/15103724935212117621/clu_tmp/8781821343778568685/linclust/1450027844053627469/pref_rescore1 --sub-mat nucl:nucleotide.out,aa:blosum62.out --rescore-mode 0 --wrapped-scoring 0 --filter-hits 0 -e 0.001 -c 0.85 -a 0 --cov-mode 0 --min-seq-id 0.9 --min-aln-len 0 --seq-id-mode 0 --add-self-matches 0 --sort-results 0 --db-load-mode 0 --threads 24 --compressed 0 -v 3 
+
+[=================================================================] 7.77K 0s 2ms
+Time for merging to pref_rescore1: 0h 0m 0s 2ms
+Time for processing: 0h 0m 0s 8ms
+clust tmp/15103724935212117621/input tmp/15103724935212117621/clu_tmp/8781821343778568685/linclust/1450027844053627469/pref_rescore1 tmp/15103724935212117621/clu_tmp/8781821343778568685/linclust/1450027844053627469/pre_clust --cluster-mode 0 --max-iterations 1000 --similarity-type 2 --threads 24 --compressed 0 -v 3 
+
+Clustering mode: Set Cover
+[=================================================================] 7.77K 0s 0ms
+Sort entries
+Find missing connections
+Found 932 new connections.
+Reconstruct initial order
+[=================================================================] 7.77K 0s 0ms
+Add missing connections
+[=================================================================] 7.77K 0s 0ms
+
+Time for read in: 0h 0m 0s 1ms
+Total time: 0h 0m 0s 3ms
+
+Size of the sequence database: 7773
+Size of the alignment database: 7773
+Number of clusters: 6944
+
+Writing results 0h 0m 0s 0ms
+Time for merging to pre_clust: 0h 0m 0s 0ms
+Time for processing: 0h 0m 0s 6ms
+createsubdb tmp/15103724935212117621/clu_tmp/8781821343778568685/linclust/1450027844053627469/order_redundancy tmp/15103724935212117621/input tmp/15103724935212117621/clu_tmp/8781821343778568685/linclust/1450027844053627469/input_step_redundancy -v 3 --subdb-mode 1 
+
+Time for merging to input_step_redundancy: 0h 0m 0s 0ms
+Time for processing: 0h 0m 0s 2ms
+createsubdb tmp/15103724935212117621/clu_tmp/8781821343778568685/linclust/1450027844053627469/order_redundancy tmp/15103724935212117621/clu_tmp/8781821343778568685/linclust/1450027844053627469/pref tmp/15103724935212117621/clu_tmp/8781821343778568685/linclust/1450027844053627469/pref_filter1 -v 3 --subdb-mode 1 
+
+Time for merging to pref_filter1: 0h 0m 0s 0ms
+Time for processing: 0h 0m 0s 2ms
+filterdb tmp/15103724935212117621/clu_tmp/8781821343778568685/linclust/1450027844053627469/pref_filter1 tmp/15103724935212117621/clu_tmp/8781821343778568685/linclust/1450027844053627469/pref_filter2 --filter-file tmp/15103724935212117621/clu_tmp/8781821343778568685/linclust/1450027844053627469/order_redundancy --threads 24 --compressed 0 -v 3 
+
+Filtering using file(s)
+[=================================================================] 6.94K 0s 4ms
+Time for merging to pref_filter2: 0h 0m 0s 2ms
+Time for processing: 0h 0m 0s 19ms
+align tmp/15103724935212117621/clu_tmp/8781821343778568685/linclust/1450027844053627469/input_step_redundancy tmp/15103724935212117621/clu_tmp/8781821343778568685/linclust/1450027844053627469/input_step_redundancy tmp/15103724935212117621/clu_tmp/8781821343778568685/linclust/1450027844053627469/pref_filter2 tmp/15103724935212117621/clu_tmp/8781821343778568685/linclust/1450027844053627469/aln --sub-mat nucl:nucleotide.out,aa:blosum62.out -a 0 --alignment-mode 3 --alignment-output-mode 0 --wrapped-scoring 0 -e 0.001 --min-seq-id 0.9 --min-aln-len 0 --seq-id-mode 0 --alt-ali 0 -c 0.85 --cov-mode 0 --max-seq-len 10000 --comp-bias-corr 0 --max-rejected 2147483647 --max-accept 2147483647 --add-self-matches 0 --db-load-mode 0 --pca 1 --pcb 1.5 --score-bias 0 --realign 0 --realign-score-bias -0.2 --realign-max-seqs 2147483647 --gap-open nucl:5,aa:11 --gap-extend nucl:2,aa:1 --zdrop 40 --threads 24 --compressed 0 -v 3 
+
+Compute score, coverage and sequence identity
+Query database size: 6944 type: Nucleotide
+Target database size: 6944 type: Nucleotide
+Calculation of alignments
+[=================================================================] 6.94K 0s 430ms
+Time for merging to aln: 0h 0m 0s 2ms
+105767 alignments calculated
+38935 sequence pairs passed the thresholds (0.368120 of overall calculated)
+5.606999 hits per query sequence
+Time for processing: 0h 0m 0s 450ms
+clust tmp/15103724935212117621/clu_tmp/8781821343778568685/linclust/1450027844053627469/input_step_redundancy tmp/15103724935212117621/clu_tmp/8781821343778568685/linclust/1450027844053627469/aln tmp/15103724935212117621/clu_tmp/8781821343778568685/linclust/1450027844053627469/clust --cluster-mode 0 --max-iterations 1000 --similarity-type 2 --threads 24 --compressed 0 -v 3 
+
+Clustering mode: Set Cover
+[=================================================================] 6.94K 0s 2ms
+Sort entries
+Find missing connections
+Found 31991 new connections.
+Reconstruct initial order
+[=================================================================] 6.94K 0s 3ms
+Add missing connections
+[=================================================================] 6.94K 0s 0ms
+
+Time for read in: 0h 0m 0s 8ms
+Total time: 0h 0m 0s 19ms
+
+Size of the sequence database: 6944
+Size of the alignment database: 6944
+Number of clusters: 1598
+
+Writing results 0h 0m 0s 0ms
+Time for merging to clust: 0h 0m 0s 0ms
+Time for processing: 0h 0m 0s 21ms
+mergeclusters tmp/15103724935212117621/input tmp/15103724935212117621/clu_tmp/8781821343778568685/clu_redundancy tmp/15103724935212117621/clu_tmp/8781821343778568685/linclust/1450027844053627469/pre_clust tmp/15103724935212117621/clu_tmp/8781821343778568685/linclust/1450027844053627469/clust --threads 24 --compressed 0 -v 3 
+
+Clustering step 1
+[=================================================================] 6.94K 0s 0ms
+Clustering step 2
+[=================================================================] 1.60K 0s 9ms
+Write merged clustering
+[=================================================================] 7.77K 0s 10ms
+Time for merging to clu_redundancy: 0h 0m 0s 0ms
+Time for processing: 0h 0m 0s 13ms
+rmdb tmp/15103724935212117621/clu_tmp/8781821343778568685/linclust/1450027844053627469/pref_filter1 -v 3 
+
+Time for processing: 0h 0m 0s 0ms
+rmdb tmp/15103724935212117621/clu_tmp/8781821343778568685/linclust/1450027844053627469/pref -v 3 
+
+Time for processing: 0h 0m 0s 0ms
+rmdb tmp/15103724935212117621/clu_tmp/8781821343778568685/linclust/1450027844053627469/pref_rescore1 -v 3 
+
+Time for processing: 0h 0m 0s 0ms
+rmdb tmp/15103724935212117621/clu_tmp/8781821343778568685/linclust/1450027844053627469/pre_clust -v 3 
+
+Time for processing: 0h 0m 0s 0ms
+rmdb tmp/15103724935212117621/clu_tmp/8781821343778568685/linclust/1450027844053627469/input_step_redundancy -v 3 
+
+Time for processing: 0h 0m 0s 0ms
+rmdb tmp/15103724935212117621/clu_tmp/8781821343778568685/linclust/1450027844053627469/input_step_redundancy_h -v 3 
+
+Time for processing: 0h 0m 0s 0ms
+rmdb tmp/15103724935212117621/clu_tmp/8781821343778568685/linclust/1450027844053627469/pref_filter2 -v 3 
+
+Time for processing: 0h 0m 0s 0ms
+rmdb tmp/15103724935212117621/clu_tmp/8781821343778568685/linclust/1450027844053627469/aln -v 3 
+
+Time for processing: 0h 0m 0s 0ms
+rmdb tmp/15103724935212117621/clu_tmp/8781821343778568685/linclust/1450027844053627469/clust -v 3 
+
+Time for processing: 0h 0m 0s 0ms
+createsubdb tmp/15103724935212117621/clu_tmp/8781821343778568685/clu_redundancy tmp/15103724935212117621/input tmp/15103724935212117621/clu_tmp/8781821343778568685/input_step_redundancy -v 3 --subdb-mode 1 
+
+Time for merging to input_step_redundancy: 0h 0m 0s 0ms
+Time for processing: 0h 0m 0s 2ms
+extractframes tmp/15103724935212117621/clu_tmp/8781821343778568685/input_step_redundancy tmp/15103724935212117621/clu_tmp/8781821343778568685/query_seqs --forward-frames 1 --reverse-frames 1 --create-lookup 0 --threads 24 --compressed 0 -v 3 
+
+[=================================================================] 1.60K 0s 3ms
+Time for merging to query_seqs_h: 0h 0m 0s 2ms
+Time for merging to query_seqs: 0h 0m 0s 2ms
+Time for processing: 0h 0m 0s 13ms
+prefilter tmp/15103724935212117621/clu_tmp/8781821343778568685/query_seqs tmp/15103724935212117621/clu_tmp/8781821343778568685/input_step_redundancy tmp/15103724935212117621/clu_tmp/8781821343778568685/pref --sub-mat nucl:nucleotide.out,aa:blosum62.out --seed-sub-mat nucl:nucleotide.out,aa:VTML80.out -s 1 -k 15 --k-score 2147483647 --alph-size nucl:5,aa:21 --max-seq-len 10000 --max-seqs 20 --split 0 --split-mode 2 --split-memory-limit 0 -c 0.85 --cov-mode 0 --comp-bias-corr 0 --diag-score 0 --exact-kmer-matching 1 --mask 1 --mask-lower-case 0 --min-ungapped-score 60 --add-self-matches 0 --spaced-kmer-mode 1 --db-load-mode 0 --pca 1 --pcb 1.5 --threads 24 --compressed 0 -v 3 
+
+Query database size: 3196 type: Nucleotide
+Estimated memory consumption: 8G
+Target database size: 1598 type: Nucleotide
+Index table k-mer threshold: 0 at k-mer size 15 
+Index table: counting k-mers
+[=================================================================] 1.60K 0s 10ms
+Index table: Masked residues: 20982
+Index table: fill
+[=================================================================] 1.60K 0s 6ms
+Index statistics
+Entries:          294193
+DB size:          8193 MB
+Avg k-mer size:   0.000274
+Top 10 k-mers
+    GATTGCTACACAGCG	1550
+    ATATCTAAAGCGGGA	1547
+    ATTCAACAGAGCGAG	1538
+    GCTAATTGTAGACAG	1464
+    CTGTTTGCAAGCCGG	1464
+    CTCTACGGTTATTAG	846
+    GGACCCTCAGGTAAG	469
+    GGACCAGTAGGTAAG	459
+    ACGCTGGAATGCCAG	341
+    ATTCCTCGACTCTGG	316
+Time for index table init: 0h 0m 4s 353ms
+Process prefiltering step 1 of 1
+
+k-mer similarity threshold: 0
+Starting prefiltering scores calculation (step 1 of 1)
+Query db start 1 to 3196
+Target db start 1 to 1598
+[=================================================================] 3.20K 0s 33ms
+
+0.908000 k-mers per position
+20407 DB matches per sequence
+0 overflows
+0 queries produce too many hits (truncated result)
+7 sequences passed prefiltering per query sequence
+1 median result list length
+1598 sequences with 0 size result lists
+Time for merging to pref: 0h 0m 0s 1ms
+Time for processing: 0h 0m 4s 705ms
+rescorediagonal tmp/15103724935212117621/clu_tmp/8781821343778568685/query_seqs tmp/15103724935212117621/clu_tmp/8781821343778568685/input_step_redundancy tmp/15103724935212117621/clu_tmp/8781821343778568685/pref tmp/15103724935212117621/clu_tmp/8781821343778568685/aln_ungapped --sub-mat nucl:nucleotide.out,aa:blosum62.out --rescore-mode 2 --wrapped-scoring 0 --filter-hits 0 -e 0.001 -c 0.85 -a 0 --cov-mode 0 --min-seq-id 0.9 --min-aln-len 0 --seq-id-mode 0 --add-self-matches 0 --sort-results 0 --db-load-mode 0 --threads 24 --compressed 0 -v 3 
+
+[=================================================================] 3.20K 0s 1ms
+Time for merging to aln_ungapped: 0h 0m 0s 1ms
+Time for processing: 0h 0m 0s 6ms
+subtractdbs tmp/15103724935212117621/clu_tmp/8781821343778568685/pref tmp/15103724935212117621/clu_tmp/8781821343778568685/aln_ungapped tmp/15103724935212117621/clu_tmp/8781821343778568685/pref_subtract --threads 24 --compressed 0 -v 3 
+
+subtractdbs tmp/15103724935212117621/clu_tmp/8781821343778568685/pref tmp/15103724935212117621/clu_tmp/8781821343778568685/aln_ungapped tmp/15103724935212117621/clu_tmp/8781821343778568685/pref_subtract --threads 24 --compressed 0 -v 3 
+
+Remove tmp/15103724935212117621/clu_tmp/8781821343778568685/aln_ungapped ids from tmp/15103724935212117621/clu_tmp/8781821343778568685/pref
+[=================================================================] 3.20K 0s 1ms
+Time for merging to pref_subtract: 0h 0m 0s 1ms
+Time for processing: 0h 0m 0s 13ms
+align tmp/15103724935212117621/clu_tmp/8781821343778568685/query_seqs tmp/15103724935212117621/clu_tmp/8781821343778568685/input_step_redundancy tmp/15103724935212117621/clu_tmp/8781821343778568685/pref_subtract tmp/15103724935212117621/clu_tmp/8781821343778568685/aln_gapped --sub-mat nucl:nucleotide.out,aa:blosum62.out -a 0 --alignment-mode 3 --alignment-output-mode 0 --wrapped-scoring 0 -e 0.001 --min-seq-id 0.9 --min-aln-len 0 --seq-id-mode 0 --alt-ali 0 -c 0.85 --cov-mode 0 --max-seq-len 10000 --comp-bias-corr 0 --max-rejected 2147483647 --max-accept 2147483647 --add-self-matches 0 --db-load-mode 0 --pca 1 --pcb 1.5 --score-bias 0 --realign 0 --realign-score-bias -0.2 --realign-max-seqs 2147483647 --gap-open nucl:5,aa:11 --gap-extend nucl:2,aa:1 --zdrop 40 --threads 24 --compressed 0 -v 3 
+
+Compute score, coverage and sequence identity
+Query database size: 3196 type: Nucleotide
+Target database size: 1598 type: Nucleotide
+Calculation of alignments
+[=================================================================] 3.20K 0s 51ms
+Time for merging to aln_gapped: 0h 0m 0s 1ms
+22578 alignments calculated
+8726 sequence pairs passed the thresholds (0.386482 of overall calculated)
+2.730288 hits per query sequence
+Time for processing: 0h 0m 0s 70ms
+concatdbs tmp/15103724935212117621/clu_tmp/8781821343778568685/aln_ungapped tmp/15103724935212117621/clu_tmp/8781821343778568685/aln_gapped tmp/15103724935212117621/clu_tmp/8781821343778568685/aln --preserve-keys --take-larger-entry --threads 24 --compressed 0 -v 3 
+
+[=================================================================] 3.20K 0s 1ms
+[=================================================================] 3.20K 0s 2ms
+Time for merging to aln: 0h 0m 0s 2ms
+Time for processing: 0h 0m 0s 7ms
+offsetalignment tmp/15103724935212117621/clu_tmp/8781821343778568685/input_step_redundancy tmp/15103724935212117621/clu_tmp/8781821343778568685/query_seqs tmp/15103724935212117621/clu_tmp/8781821343778568685/input_step_redundancy tmp/15103724935212117621/clu_tmp/8781821343778568685/input_step_redundancy tmp/15103724935212117621/clu_tmp/8781821343778568685/aln tmp/15103724935212117621/clu_tmp/8781821343778568685/aln_off --chain-alignments 0 --merge-query 1 --search-type 3 --threads 24 --compressed 0 --db-load-mode 0 -v 3 
+
+Computing ORF lookup
+Computing contig offsets
+Computing contig lookup
+Time for contig lookup: 0h 0m 0s 8ms
+Writing results to: tmp/15103724935212117621/clu_tmp/8781821343778568685/aln_off
+[=================================================================] 7.77K 0s 0ms
+
+Time for merging to aln_off: 0h 0m 0s 1ms
+Time for processing: 0h 0m 0s 14ms
+clust tmp/15103724935212117621/clu_tmp/8781821343778568685/input_step_redundancy tmp/15103724935212117621/clu_tmp/8781821343778568685/aln_off tmp/15103724935212117621/clu_tmp/8781821343778568685/clu --cluster-mode 0 --max-iterations 1000 --similarity-type 2 --threads 24 --compressed 0 -v 3 
+
+Clustering mode: Set Cover
+[=================================================================] 1.60K 0s 0ms
+Sort entries
+Find missing connections
+Found 4697 new connections.
+Reconstruct initial order
+[=================================================================] 1.60K 0s 3ms
+Add missing connections
+[=================================================================] 1.60K 0s 0ms
+
+Time for read in: 0h 0m 0s 4ms
+there must be an error: 5433 deleted from 2625 that now is empty, but not assigned to a cluster
+there must be an error: 2159 deleted from 5209 that now is empty, but not assigned to a cluster
+there must be an error: 3315 deleted from 6575 that now is empty, but not assigned to a cluster
+there must be an error: 6357 deleted from 3457 that now is empty, but not assigned to a cluster
+there must be an error: 6903 deleted from 4568 that now is empty, but not assigned to a cluster
+there must be an error: 1351 deleted from 2038 that now is empty, but not assigned to a cluster
+there must be an error: 3140 deleted from 445 that now is empty, but not assigned to a cluster
+there must be an error: 3140 deleted from 3116 that now is empty, but not assigned to a cluster
+there must be an error: 4274 deleted from 6812 that now is empty, but not assigned to a cluster
+there must be an error: 4274 deleted from 7005 that now is empty, but not assigned to a cluster
+there must be an error: 6401 deleted from 2949 that now is empty, but not assigned to a cluster
+there must be an error: 4753 deleted from 6124 that now is empty, but not assigned to a cluster
+there must be an error: 4753 deleted from 4660 that now is empty, but not assigned to a cluster
+there must be an error: 4753 deleted from 6298 that now is empty, but not assigned to a cluster
+there must be an error: 6959 deleted from 7507 that now is empty, but not assigned to a cluster
+there must be an error: 6959 deleted from 4198 that now is empty, but not assigned to a cluster
+there must be an error: 7569 deleted from 6661 that now is empty, but not assigned to a cluster
+there must be an error: 1411 deleted from 3817 that now is empty, but not assigned to a cluster
+there must be an error: 5331 deleted from 3248 that now is empty, but not assigned to a cluster
+there must be an error: 713 deleted from 1113 that now is empty, but not assigned to a cluster
+there must be an error: 5995 deleted from 3486 that now is empty, but not assigned to a cluster
+there must be an error: 5995 deleted from 581 that now is empty, but not assigned to a cluster
+there must be an error: 6980 deleted from 1172 that now is empty, but not assigned to a cluster
+there must be an error: 6980 deleted from 265 that now is empty, but not assigned to a cluster
+there must be an error: 6980 deleted from 5573 that now is empty, but not assigned to a cluster
+there must be an error: 6980 deleted from 6022 that now is empty, but not assigned to a cluster
+there must be an error: 6980 deleted from 6313 that now is empty, but not assigned to a cluster
+there must be an error: 6980 deleted from 615 that now is empty, but not assigned to a cluster
+there must be an error: 6980 deleted from 5846 that now is empty, but not assigned to a cluster
+there must be an error: 5551 deleted from 3407 that now is empty, but not assigned to a cluster
+there must be an error: 5711 deleted from 400 that now is empty, but not assigned to a cluster
+there must be an error: 3513 deleted from 2889 that now is empty, but not assigned to a cluster
+there must be an error: 5796 deleted from 3967 that now is empty, but not assigned to a cluster
+there must be an error: 4935 deleted from 3611 that now is empty, but not assigned to a cluster
+there must be an error: 2310 deleted from 3938 that now is empty, but not assigned to a cluster
+there must be an error: 7281 deleted from 4497 that now is empty, but not assigned to a cluster
+there must be an error: 3428 deleted from 7580 that now is empty, but not assigned to a cluster
+there must be an error: 6370 deleted from 6223 that now is empty, but not assigned to a cluster
+there must be an error: 776 deleted from 7031 that now is empty, but not assigned to a cluster
+there must be an error: 6320 deleted from 2857 that now is empty, but not assigned to a cluster
+there must be an error: 6052 deleted from 1843 that now is empty, but not assigned to a cluster
+there must be an error: 7508 deleted from 3111 that now is empty, but not assigned to a cluster
+there must be an error: 6 deleted from 3566 that now is empty, but not assigned to a cluster
+there must be an error: 2459 deleted from 790 that now is empty, but not assigned to a cluster
+there must be an error: 2245 deleted from 5351 that now is empty, but not assigned to a cluster
+there must be an error: 6908 deleted from 6682 that now is empty, but not assigned to a cluster
+there must be an error: 118 deleted from 3505 that now is empty, but not assigned to a cluster
+there must be an error: 2464 deleted from 7239 that now is empty, but not assigned to a cluster
+there must be an error: 3634 deleted from 621 that now is empty, but not assigned to a cluster
+there must be an error: 3634 deleted from 2615 that now is empty, but not assigned to a cluster
+there must be an error: 7767 deleted from 5316 that now is empty, but not assigned to a cluster
+there must be an error: 844 deleted from 4265 that now is empty, but not assigned to a cluster
+there must be an error: 3609 deleted from 5137 that now is empty, but not assigned to a cluster
+there must be an error: 2953 deleted from 4241 that now is empty, but not assigned to a cluster
+there must be an error: 7114 deleted from 1030 that now is empty, but not assigned to a cluster
+there must be an error: 2422 deleted from 935 that now is empty, but not assigned to a cluster
+there must be an error: 3964 deleted from 7159 that now is empty, but not assigned to a cluster
+there must be an error: 953 deleted from 487 that now is empty, but not assigned to a cluster
+there must be an error: 550 deleted from 3787 that now is empty, but not assigned to a cluster
+there must be an error: 5550 deleted from 6514 that now is empty, but not assigned to a cluster
+there must be an error: 5839 deleted from 1984 that now is empty, but not assigned to a cluster
+there must be an error: 5839 deleted from 4858 that now is empty, but not assigned to a cluster
+there must be an error: 6574 deleted from 5160 that now is empty, but not assigned to a cluster
+there must be an error: 2148 deleted from 3028 that now is empty, but not assigned to a cluster
+there must be an error: 5799 deleted from 5728 that now is empty, but not assigned to a cluster
+there must be an error: 1192 deleted from 4774 that now is empty, but not assigned to a cluster
+there must be an error: 3336 deleted from 7653 that now is empty, but not assigned to a cluster
+there must be an error: 3858 deleted from 1520 that now is empty, but not assigned to a cluster
+there must be an error: 2950 deleted from 2037 that now is empty, but not assigned to a cluster
+there must be an error: 3109 deleted from 1643 that now is empty, but not assigned to a cluster
+there must be an error: 6989 deleted from 6444 that now is empty, but not assigned to a cluster
+there must be an error: 4074 deleted from 2684 that now is empty, but not assigned to a cluster
+there must be an error: 4074 deleted from 3240 that now is empty, but not assigned to a cluster
+there must be an error: 1467 deleted from 1616 that now is empty, but not assigned to a cluster
+there must be an error: 2062 deleted from 471 that now is empty, but not assigned to a cluster
+there must be an error: 1017 deleted from 2157 that now is empty, but not assigned to a cluster
+there must be an error: 1247 deleted from 2765 that now is empty, but not assigned to a cluster
+there must be an error: 7425 deleted from 6849 that now is empty, but not assigned to a cluster
+there must be an error: 1014 deleted from 1437 that now is empty, but not assigned to a cluster
+there must be an error: 912 deleted from 7611 that now is empty, but not assigned to a cluster
+there must be an error: 1336 deleted from 1259 that now is empty, but not assigned to a cluster
+there must be an error: 5409 deleted from 4029 that now is empty, but not assigned to a cluster
+there must be an error: 4046 deleted from 5888 that now is empty, but not assigned to a cluster
+there must be an error: 6006 deleted from 362 that now is empty, but not assigned to a cluster
+there must be an error: 5493 deleted from 1208 that now is empty, but not assigned to a cluster
+there must be an error: 6656 deleted from 818 that now is empty, but not assigned to a cluster
+there must be an error: 1076 deleted from 3731 that now is empty, but not assigned to a cluster
+there must be an error: 2574 deleted from 6841 that now is empty, but not assigned to a cluster
+there must be an error: 805 deleted from 5133 that now is empty, but not assigned to a cluster
+there must be an error: 805 deleted from 125 that now is empty, but not assigned to a cluster
+there must be an error: 5089 deleted from 3009 that now is empty, but not assigned to a cluster
+there must be an error: 7424 deleted from 1065 that now is empty, but not assigned to a cluster
+there must be an error: 1416 deleted from 6028 that now is empty, but not assigned to a cluster
+there must be an error: 2153 deleted from 3565 that now is empty, but not assigned to a cluster
+there must be an error: 251 deleted from 1910 that now is empty, but not assigned to a cluster
+there must be an error: 5027 deleted from 5621 that now is empty, but not assigned to a cluster
+there must be an error: 5907 deleted from 7768 that now is empty, but not assigned to a cluster
+there must be an error: 4483 deleted from 5234 that now is empty, but not assigned to a cluster
+there must be an error: 4483 deleted from 28 that now is empty, but not assigned to a cluster
+there must be an error: 268 deleted from 416 that now is empty, but not assigned to a cluster
+there must be an error: 5088 deleted from 4004 that now is empty, but not assigned to a cluster
+there must be an error: 4940 deleted from 5511 that now is empty, but not assigned to a cluster
+there must be an error: 4940 deleted from 4670 that now is empty, but not assigned to a cluster
+there must be an error: 1635 deleted from 757 that now is empty, but not assigned to a cluster
+there must be an error: 3627 deleted from 2370 that now is empty, but not assigned to a cluster
+there must be an error: 3281 deleted from 474 that now is empty, but not assigned to a cluster
+there must be an error: 6415 deleted from 764 that now is empty, but not assigned to a cluster
+there must be an error: 4621 deleted from 2348 that now is empty, but not assigned to a cluster
+there must be an error: 4621 deleted from 5279 that now is empty, but not assigned to a cluster
+there must be an error: 1337 deleted from 4393 that now is empty, but not assigned to a cluster
+there must be an error: 2549 deleted from 6471 that now is empty, but not assigned to a cluster
+there must be an error: 2549 deleted from 956 that now is empty, but not assigned to a cluster
+there must be an error: 4434 deleted from 2473 that now is empty, but not assigned to a cluster
+there must be an error: 6438 deleted from 5007 that now is empty, but not assigned to a cluster
+there must be an error: 3414 deleted from 5386 that now is empty, but not assigned to a cluster
+there must be an error: 3414 deleted from 3953 that now is empty, but not assigned to a cluster
+there must be an error: 6013 deleted from 802 that now is empty, but not assigned to a cluster
+there must be an error: 7578 deleted from 5648 that now is empty, but not assigned to a cluster
+there must be an error: 4874 deleted from 6085 that now is empty, but not assigned to a cluster
+there must be an error: 735 deleted from 3656 that now is empty, but not assigned to a cluster
+there must be an error: 3045 deleted from 7045 that now is empty, but not assigned to a cluster
+there must be an error: 3070 deleted from 1125 that now is empty, but not assigned to a cluster
+there must be an error: 6819 deleted from 3523 that now is empty, but not assigned to a cluster
+there must be an error: 5908 deleted from 6285 that now is empty, but not assigned to a cluster
+there must be an error: 6669 deleted from 313 that now is empty, but not assigned to a cluster
+there must be an error: 7036 deleted from 2805 that now is empty, but not assigned to a cluster
+there must be an error: 7036 deleted from 1825 that now is empty, but not assigned to a cluster
+there must be an error: 7472 deleted from 2008 that now is empty, but not assigned to a cluster
+there must be an error: 4781 deleted from 4179 that now is empty, but not assigned to a cluster
+there must be an error: 3396 deleted from 6815 that now is empty, but not assigned to a cluster
+there must be an error: 1726 deleted from 6476 that now is empty, but not assigned to a cluster
+there must be an error: 2167 deleted from 1149 that now is empty, but not assigned to a cluster
+there must be an error: 6472 deleted from 98 that now is empty, but not assigned to a cluster
+there must be an error: 1394 deleted from 7010 that now is empty, but not assigned to a cluster
+there must be an error: 4411 deleted from 466 that now is empty, but not assigned to a cluster
+there must be an error: 608 deleted from 6194 that now is empty, but not assigned to a cluster
+Total time: 0h 0m 0s 13ms
+
+Size of the sequence database: 1598
+Size of the alignment database: 1598
+Number of clusters: 774
+
+Writing results 0h 0m 0s 0ms
+Time for merging to clu: 0h 0m 0s 0ms
+Time for processing: 0h 0m 0s 15ms
+mergeclusters tmp/15103724935212117621/input tmp/15103724935212117621/clu tmp/15103724935212117621/clu_tmp/8781821343778568685/clu_redundancy tmp/15103724935212117621/clu_tmp/8781821343778568685/clu --threads 24 --compressed 0 -v 3 
+
+Clustering step 1
+[=================================================================] 1.60K 0s 0ms
+Clustering step 2
+[=================================================================] 774 0s 1ms
+Write merged clustering
+[=================================================================] 7.77K 0s 3ms
+Time for merging to clu: 0h 0m 0s 0ms
+Time for processing: 0h 0m 0s 6ms
+rmdb tmp/15103724935212117621/clu_tmp/8781821343778568685/query_seqs -v 3 
+
+Time for processing: 0h 0m 0s 0ms
+rmdb tmp/15103724935212117621/clu_tmp/8781821343778568685/clu_redundancy -v 3 
+
+Time for processing: 0h 0m 0s 0ms
+rmdb tmp/15103724935212117621/clu_tmp/8781821343778568685/input_step_redundancy -v 3 
+
+Time for processing: 0h 0m 0s 0ms
+rmdb tmp/15103724935212117621/clu_tmp/8781821343778568685/perf -v 3 
+
+Time for processing: 0h 0m 0s 0ms
+rmdb tmp/15103724935212117621/clu_tmp/8781821343778568685/aln -v 3 
+
+Time for processing: 0h 0m 0s 0ms
+rmdb tmp/15103724935212117621/clu_tmp/8781821343778568685/aln_off -v 3 
+
+Time for processing: 0h 0m 0s 0ms
+rmdb tmp/15103724935212117621/clu_tmp/8781821343778568685/clu -v 3 
+
+Time for processing: 0h 0m 0s 0ms
+createtsv tmp/15103724935212117621/input tmp/15103724935212117621/input tmp/15103724935212117621/clu tmp/15103724935212117621/cluster.tsv --threads 24 -v 3 
+
+Time for merging to cluster.tsv: 0h 0m 0s 1ms
+Time for processing: 0h 0m 0s 10ms
+result2repseq tmp/15103724935212117621/input tmp/15103724935212117621/clu tmp/15103724935212117621/clu_rep --db-load-mode 0 --compressed 0 --threads 24 -v 3 
+
+[=================================================================] 774 0s 0ms
+Time for merging to clu_rep: 0h 0m 0s 1ms
+Time for processing: 0h 0m 0s 4ms
+result2flat tmp/15103724935212117621/input tmp/15103724935212117621/input tmp/15103724935212117621/clu_rep tmp/15103724935212117621/rep_seq.fasta --use-fasta-header -v 3 
+
+Time for processing: 0h 0m 0s 2ms
+createseqfiledb tmp/15103724935212117621/input tmp/15103724935212117621/clu tmp/15103724935212117621/clu_seqs --threads 24 -v 3 
+
+[=================================================================] 774 0s 2ms
+Time for merging to clu_seqs: 0h 0m 0s 1ms
+Time for processing: 0h 0m 0s 14ms
+result2flat tmp/15103724935212117621/input tmp/15103724935212117621/input tmp/15103724935212117621/clu_seqs tmp/15103724935212117621/all_seqs.fasta -v 3 
+
+Time for processing: 0h 0m 0s 5ms
+rmdb tmp/15103724935212117621/input -v 3 
+
+Time for processing: 0h 0m 0s 0ms
+rmdb tmp/15103724935212117621/input_h -v 3 
+
+Time for processing: 0h 0m 0s 0ms
+rmdb tmp/15103724935212117621/clu_seqs -v 3 
+
+Time for processing: 0h 0m 0s 0ms
+rmdb tmp/15103724935212117621/clu_rep -v 3 
+
+Time for processing: 0h 0m 0s 0ms
+rmdb tmp/15103724935212117621/clu -v 3 
+
+Time for processing: 0h 0m 0s 0ms
