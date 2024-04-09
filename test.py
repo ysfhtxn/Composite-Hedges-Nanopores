@@ -8,7 +8,7 @@ if __name__ == "__main__":
     root_path = os.path.dirname(CHN.__file__)
 
     file_paths = {
-        "sme introduction.txt": os.path.join(root_path, "CHN_test", "sme introduction.txt")
+        "sme introduction.txt": os.path.join(root_path, "test_file", "sme introduction.txt")
     }
 
     coding_schemes = {
