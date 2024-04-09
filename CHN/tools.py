@@ -1,7 +1,6 @@
-import subprocess, os, re, time, tqdm, copy, random
+import subprocess, os, copy, random
 from Bio import SeqIO
 from scipy.spatial import distance
-from matplotlib import pyplot as plt
 
 def read_file(path):
     with open(path) as handle:
@@ -45,14 +44,12 @@ def batch_assembly(fasta_path, result_path):
             f.write(f'>batch_consensus_{idx}\n')
             f.write(f'{item}\n')
     assembly(batches_path, batches_output_path)
-    # consensus = get_consensus2(batches_output_path)
     consensus = get_consensus(batches_output_path, sigma=4)
     return consensus
 
     
 def get_consensus(result_path, sigma=4):
     assembly_seqs = [str(i.seq) for i in SeqIO.parse(result_path, "fasta")]
-    # print(len(assembly_seqs))
     seq_len = max([len(item) for item in assembly_seqs])
     ratio_list = []
     ratio_div = []

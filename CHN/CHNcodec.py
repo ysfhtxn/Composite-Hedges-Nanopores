@@ -1,7 +1,6 @@
-import random, re, json, os, tqdm, math, random, time, pickle
+import tqdm, math
 from Chamaeleo.methods.inherent import *
 from CHN.default import AbstractCodingAlgorithm
-from Bio import SeqIO
 from base64 import decode
 import numpy as np
 from copy import deepcopy
@@ -203,6 +202,7 @@ class chn(AbstractCodingAlgorithm):
                 for bit in range(1 << self.step):
                     hypo_prev_bits = ((hypotree_p.prev_bits << self.step) +
                                       bit) & self.pattern_mask
+                    mod, alphabet = self.dnacallowed(data[:_])
                     hypo_code = self.digest(hypo_prev_bits, index - 1,
                                             self.mod)
 
@@ -284,7 +284,6 @@ class chn(AbstractCodingAlgorithm):
         return int(self.ran_hash(bits + (k << self.pattern)) % mod)
 
     def to_combine(self, encode_res: List[dict]) -> str:
-        # res = []
         tempstr = ''
         cnt = 0
         for item in encode_res:
@@ -305,27 +304,6 @@ class chn(AbstractCodingAlgorithm):
         res = distance.jensenshannon(refer, input)
         return res
     
-    def cal_ratio(seq_copys):
-        """
-            计算序列组的ratio并保存在list中
-            :return:ATCG比例 like[{'G': 25, 'T': 25}, {'C': 50}, {'A': 28, 'C': 22}, {'A': 50}]
-        """
-        ratio_list = []
-        for i in range(len(seq_copys[0])):
-            temp = []
-            for k in range(len(seq_copys)):
-                temp.append(seq_copys[k][i])
-            lis = np.array(temp)
-            key = np.unique(lis)
-            result={}
-            for k in key:
-                mask =(lis == k)
-                list_new=lis[mask]
-                v=list_new.size
-                result[k]=v
-            ratio_list.append(result)
-        return ratio_list
-
     def ran_hash(self, u):
         """
         哈希编码
@@ -355,8 +333,6 @@ class chn(AbstractCodingAlgorithm):
             for _ in range(pattern):
                 vbits.append((word & mask))
                 word = word >> 1
-        # for i in range(pattern - 1):
-        #     vbits.append(0)
         return vbits
 
 
@@ -375,8 +351,6 @@ class chn(AbstractCodingAlgorithm):
                 try:
                     temp_msg += temp_word[_] * (1 << _)
                 except IndexError:
-                    # print('error:%d'%_)
-                    # print(len(vbits))
                     pass
             msg.append(temp_msg)
         return msg
@@ -444,8 +418,6 @@ class chn(AbstractCodingAlgorithm):
     def encode(self, test_msg):
         N, K = 40, 36
         rsc = RSCodec(N - K, nsize=N)
-
-        replica_num = 50
 
         self.alphabet_show()
 

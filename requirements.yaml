@@ -1,6 +1,5 @@
 Bio: 1.6.2
 biopython: '1.78'
-matplotlib: 3.6.2
 numpy: 1.23.3
 pandas: 1.5.2
 reedsolo: 1.5.4
