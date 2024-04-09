@@ -14,7 +14,7 @@ First, clone the repository to a local directory:
 git clone https://github.com/ysfhtxn/Composite-Hedges-Nanopores.git
 ```
 
-Then install required packages using the [.yaml file]():
+Then install required packages using the file [requirements.yaml](https://github.com/ysfhtxn/Composite-Hedges-Nanopores/blob/main/requirements.yaml):
 
 ---
 
