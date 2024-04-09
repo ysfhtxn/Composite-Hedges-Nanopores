@@ -52,9 +52,9 @@ After installing `MMseqs2`, make sure that it is placed in your system path.
 │    ├── __init__.py                  // 
 │    ├── CHNcodec.py                  // The main body of CHN codec
 │    ├── data_recovery.py             // Recovering stored data files from raw DNA reads
-│    ├── mapping.py                   // 
-│    ├── paf_to_tsv.py                // 
-│    ├── readsdic_gen.py              // 
+│    ├── mapping.py                   // Minimap2 scripts --- mapping reads
+│    ├── paf_to_tsv.py                // Convert .paf file (from Minimap2) to .tsv file
+│    ├── readsdic_gen.py              // Generate read info dictionary based on read ID
 │    ├── seq_grouping.py              // Grouping raw DNA reads by barcodes and anchors
 │    ├── tools.py                     // Some tools for DNA data recovery 
 │    ├── utils.py                     // Some functions for CHN codec
