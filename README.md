@@ -66,4 +66,4 @@ After installing `MMseqs2`, make sure that it is placed in your system path.
 
 ---
 
-If you think this repository helps or inspires your study, please consider refer it. 😄
+If you think this repository helps or inspires your study, please consider referring it. 😄
