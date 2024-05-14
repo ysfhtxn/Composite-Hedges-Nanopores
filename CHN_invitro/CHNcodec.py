@@ -392,3 +392,152 @@ class chn:
             data.append(
                 composite_letter(code_pattern(self.resolution)[string[i]]))
         return data
+    
+    def mapping(self, seq: str, seq_replica_num):
+        alphabet_dict = {'A':['A'], 'C':['C'], 'T':['T'], 'G':['G'],'M':['A','C'], 'K':['G','T'], 'R':['A','G'], 'Y':['C','T']}
+        gc_window = 10
+        gc_max = 0.525
+        gc_min = 0.475
+        replicas = [''] * seq_replica_num
+        for idx in range(len(seq)):
+            if idx + 1 >= gc_window:
+                current_base = seq[idx]
+                current_alphabet_list = alphabet_dict[current_base]
+                if len(current_alphabet_list) == 2:
+                    initial_list = current_alphabet_list * (seq_replica_num//2)
+                    all_permutations = list(itertools.permutations(initial_list))
+                    unique_permutations = set(all_permutations)
+                    result = [list(perm) for perm in unique_permutations]
+                    all_alphabet_list = result
+                    dist = 9999
+                    for alphabet_mode in all_alphabet_list:
+                        temp = ['']*seq_replica_num
+                        for _ in range(seq_replica_num):
+                            temp[_] = replicas[_] + str(alphabet_mode[_])
+                        gc_ratio = [(i[:].count('C')+i[:].count('G'))/len(i[:]) for i in temp]
+                        dd = distance.jensenshannon([0.5]*seq_replica_num,gc_ratio)
+                        # dd = math.sqrt(sum([(i-0.5)**2 for i in gc_ratio]))
+                        if dd < dist:
+                            gc_ok_mode = alphabet_mode
+                            dist = dd
+                    for _ in range(seq_replica_num):
+                        replicas[_] = replicas[_] + str(gc_ok_mode[_])
+                elif len(current_alphabet_list) == 1:
+                    all_alphabet_list = current_alphabet_list * seq_replica_num
+                    for _ in range(seq_replica_num):
+                        replicas[_] += str(all_alphabet_list[_])
+            else:
+                current_base = seq[idx]
+                current_alphabet_list = alphabet_dict[current_base]
+                if len(current_alphabet_list) == 2:
+                    initial_list = current_alphabet_list * (seq_replica_num//2)
+                    all_permutations = list(itertools.permutations(initial_list))
+                    unique_permutations = set(all_permutations)
+                    result = [list(perm) for perm in unique_permutations]
+                    all_alphabet_list = result
+                    for alphabet_mode in all_alphabet_list:
+                        temp = ['']*seq_replica_num
+                        for _ in range(seq_replica_num):
+                            temp[_] = replicas[_] + str(alphabet_mode[_])
+                        gc_ratio = [(i[:].count('C')+i[:].count('G'))/len(i[:]) for i in temp]
+                        gc_large = [int(gc_ratio_i >= gc_max) for gc_ratio_i in gc_ratio].count(1) > 0
+                        gc_small = [int(gc_ratio_i <= gc_min) for gc_ratio_i in gc_ratio].count(1) > 0
+                        gc_ok = not(gc_large) and not(gc_small)
+                        if gc_ok:
+                            replicas = temp
+                            break
+                    replicas = temp
+                elif len(current_alphabet_list) == 1:
+                    all_alphabet_list = current_alphabet_list * seq_replica_num
+                    for _ in range(seq_replica_num):
+                        replicas[_] += str(all_alphabet_list[_])
+        return replicas
+
+    def encode(self, test_msg):
+        N, K = 40, 36
+        rsc = RSCodec(N - K, nsize=N)
+
+        self.alphabet_show()
+
+        test_msg = b''.join(test_msg)
+
+        seq = []
+        infile_size = total_byte_nums = len(test_msg)
+
+        fragment = math.ceil(total_byte_nums / K)
+        with tqdm.trange(fragment, desc='encoding...') as tbar:
+            for i in range(fragment):
+                if i == fragment - 1 and (total_byte_nums % K) != 0:
+                    fragment_msg = test_msg[i * K:] + bytearray(
+                        [0] * (K - (total_byte_nums % K)))
+                else:
+                    fragment_msg = test_msg[i * K:(i + 1) * K]
+                rs_encode_res = rsc.encode(bytearray(fragment_msg))
+                if len(rs_encode_res) != N:
+                    raise ValueError('rs_encode_res not match N')
+                encode_vbits = self.unpack_vbits(rs_encode_res, self.pattern)
+                result = self.encode_c(encode_vbits)
+                seq.append(self.to_combine(encode_res=result))
+                tbar.update()
+        
+        mapped_seqs = []
+        with tqdm.trange(len(seq), desc='mapping...') as tbar:
+            for item in seq:
+                mapped_seqs += self.mapping(item, seq_replica_num=8)
+                tbar.update()
+        
+        num_replicas = 50
+        seqs_replicas = [[list(item)] * num_replicas for item in mapped_seqs]
+
+        return seqs_replicas
+
+    def decode(self, dna_sequences):
+        dna_sequence_replicas = []        
+        for dna_sequence in dna_sequences:
+            dna_sequence_replicas.append([''.join(item) for item in dna_sequence])
+
+        seq = []
+        for i in tqdm.tqdm(range(len(dna_sequence_replicas))):
+            with open('./assembly/temp_seq_replicas.fasta', 'w')as f:
+                for idx, item in enumerate(dna_sequence_replicas[i]):
+                    f.write(f'>replica_{idx}\n')
+                    f.write(f'{item}\n')
+            seq_replica_consensus = batch_assembly('./assembly/temp_seq_replicas.fasta', './assembly/temp_seq_replicas_output.fasta')
+            seq.append(seq_replica_consensus)
+        
+        consensuses = []
+        for i in tqdm.tqdm(range(len(seq)//8)):
+            with open('./assembly/temp_consensus.fasta', 'w')as f:
+                for idx, item in enumerate(seq[i*8:i*8+8]):
+                    f.write(f'>replica_{idx}\n')
+                    f.write(f'{item}\n')
+            consensuses.append(get_consensus('./assembly/temp_consensus.fasta', sigma=8))
+            
+        N, K = 40, 36
+        rsc = RSCodec(N - K, N)
+        decode_res = []
+
+        fragment = len(consensuses)
+
+        with tqdm.trange(fragment, desc='decoding...') as tbar:
+            for i in range(fragment):
+                data = self.combine_to_letters(consensuses[i])
+                res = self.decode_c(data)
+                #print('decode res nums: %d' % len(res))
+                decode_vbits, min_penalty = self.hypo_backtrack(res)
+                #print('same min penalty num: %d' % len(decode_vbits))
+                #print('penalty: %f' % min_penalty)
+                if len(decode_vbits) < 1:
+                    print('rs_code decode failed')
+                    decode_vbits = [[0]*N*8]
+                # randomly choose a min penalty decode_vbits
+                msg = self.pack_vbits(decode_vbits[0], self.pattern)
+                try:
+                    rs_decode_res = rsc.decode(bytearray(msg))[0]
+                except:
+                    rs_decode_res = bytearray([0]*self.segment_length*8)
+                decode_res.append(rs_decode_res)
+                
+                tbar.update()
+                
+        return [bytes(item) for item in decode_res]
