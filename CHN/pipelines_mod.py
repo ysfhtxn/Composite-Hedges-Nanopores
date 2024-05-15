@@ -381,7 +381,7 @@ class RobustnessPipeline(DefaultPipeline):
                             if bit_segment is not None:
                                 temps.append(bit_segment)
                         bit_segments = temps
-                        print(encoded_data["bit"][0].__class__)
+
                         if len(bit_segments) == 0:
                             bit_segments = None
 

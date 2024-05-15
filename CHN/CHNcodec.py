@@ -457,7 +457,8 @@ class chn(AbstractCodingAlgorithm):
         dna_sequence_replicas = []        
         for dna_sequence in dna_sequences:
             dna_sequence_replicas.append([''.join(item) for item in dna_sequence])
-
+        if not os.path.exists(r'./assembly/'):
+            os.makedirs(r'./assembly/')
         seq = []
         for i in tqdm.tqdm(range(len(dna_sequence_replicas))):
             with open('./assembly/temp_seq_replicas.fasta', 'w')as f:
