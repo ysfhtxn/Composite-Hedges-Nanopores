@@ -15,7 +15,7 @@ $ git clone https://github.com/ysfhtxn/Composite-Hedges-Nanopores.git
 Then install required packages using the file [environment.yml](https://github.com/ysfhtxn/Composite-Hedges-Nanopores/blob/main/environment.yml):
 
 ```bash
-$ conda env create -f environment.yml &&  conda activate CHN
+$ conda env create -f environment.yml && conda activate CHN
 ```
 
 This will create a Python virtual environment in the `Composite-Hedges-Nanopores` folder. The installation should take less than **10 minutes** on a typical desktop pc, but maybe can take longer if an older pip version is used.
@@ -29,13 +29,13 @@ Composite-Hedges-Nanopores integrated the code of this work into the evaluation 
 To evaluate, users can simply run `./robustness_test.py` with command:
 
 ```bash
-$ python robustness_test.py # The output will be displayed on the terminal.
+$ python robustness_test.py # The output will be displayed on the terminal
 ```
 
 or
 
 ```bash
-$ nohup python -u robustness_test.py > robustness_test.log & # The output will be displayed on the terminal.
+$ nohup python -u robustness_test.py > robustness_test.log & # The output will be saved to robustness_test.log
 ```
 
 The output will be displayed like the following :
@@ -123,9 +123,9 @@ After installing `MMseqs2`, make sure that it is placed in your system path.
 ```
 
 ---
-## Reproducing the in-vitro analysis
+## Reproducing the ***in vitro*** analysis
 
-To evaluate Composite-Hedges-Nanopores, we encoded the files sme introduction.txt and sme logo.jpg, which can be found in the `./CHN/test_file/` folder. The encoded files are then synthesized, amplified, and sequenced. For encoding, copy the configuration file (NAME.json) to the DNA-Aeon root folder and the corresponding source files to the data/ folder. The encoding command is as follows:
+To evaluate Composite-Hedges-Nanopores, we encoded the files sme introduction.txt and sme logo.jpg, which can be found in the `./CHN_invitro/examples/` folder. The encoded files are then synthesized, amplified, and sequenced. For encoding, run the command is as follows:
 
 ```bash
 $ cd CHN_invitro && python encode.py
