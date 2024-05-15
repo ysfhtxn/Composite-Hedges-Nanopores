@@ -5,6 +5,9 @@ from typing import List
 from utils import composite_letter, Hypothesis, code_pattern, HypothesisTree
 from scipy.stats import wasserstein_distance
 from scipy.spatial import distance
+import tqdm, itertools, math
+from reedsolo import RSCodec
+from tools import *
 
 
 DEBUG0 = False
@@ -486,6 +489,11 @@ class chn:
                 mapped_seqs += self.mapping(item, seq_replica_num=8)
                 tbar.update()
         
+        with open('./encoded.fasta', 'w')as f:
+            for idx, item in enumerate(mapped_seqs):
+                f.write(f'>index_{idx}\n')
+                f.write(f'{item}\n')
+
         num_replicas = 50
         seqs_replicas = [[list(item)] * num_replicas for item in mapped_seqs]
 

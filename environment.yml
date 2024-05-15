@@ -1,4 +1,4 @@
-name: Composite-Hedges-Nanopores
+name: CHN
 channels:
   - plotly
   - beliveau-lab

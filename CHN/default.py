@@ -25,7 +25,7 @@ class AbstractCodingAlgorithm(object):
                   + " the length of final encoded binary segments is " + str(self.segment_length))
 
         self.bit_size = bit_size
-        print(bit_size)
+        
         self.segment_length = len(bit_segments[0])
         start_time = datetime.now()
 
