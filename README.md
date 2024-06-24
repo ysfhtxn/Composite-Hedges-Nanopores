@@ -108,7 +108,6 @@ After installing `MMseqs2`, make sure that it is placed in your system path.
 │    ├── encode.py                    // Encoding example files into DNA strands
 │    ├── decode.py                    // Recovering stored data files from raw DNA reads
 │    ├── mapping.py                   // Minimap2 scripts --- mapping reads
-│    ├── paf_to_tsv.py                // Convert .paf file (from Minimap2) to .tsv file
 │    ├── readsdic_gen.py              // Generate read info dictionary based on read ID
 │    ├── seq_grouping.py              // Grouping raw DNA reads by barcodes and anchors
 │    ├── tools.py                     // Some tools for DNA data recovery 
@@ -134,7 +133,7 @@ $ cd CHN_invitro && python encode.py
 In order to reproduce the decoding of sequencing data, it must first be downloaded from the sequence read archive. The sequencing .fastq data has been deposited in the CNSA (https://db.cngb.org/cnsa/) of the CNGBdb with accession CNP0005551. 
 
 ```bash
-$ cd CHN_invitro && python mapping.py && python paf_to_tsv.py && python readsdic_gen.py && python seq_grouping.py && python decode.py
+$ cd CHN_invitro && python mapping.py && python readsdic_gen.py && python seq_grouping.py && python decode.py
 ```
 
 Remember that the paths in the file above must be adjusted before decoding.
