@@ -139,5 +139,18 @@ $ cd CHN_invitro && python mapping.py && python readsdic_gen.py && python seq_gr
 Remember that the paths in the file above must be adjusted before decoding.
 
 ---
-
+## Citation
 If you think this repository helps or inspires your study, please consider referring it. 😄
+```bibtex
+@article {Zhao2024.07.12.603190,
+	author = {Zhao, Xuyang and Li, Junyao and Fan, Qingyuan and Dai, Jing and Long, Yanping and Liu, Ronghui and Zhai, Jixian and Pan, Qing and Li, Yi},
+	title = {Composite Hedges Nanopores: A High INDEL-Correcting Codec System for Rapid and Portable DNA Data Readout},
+	elocation-id = {2024.07.12.603190},
+	year = {2024},
+	doi = {10.1101/2024.07.12.603190},
+	publisher = {Cold Spring Harbor Laboratory},
+	URL = {https://www.biorxiv.org/content/early/2024/07/16/2024.07.12.603190},
+	eprint = {https://www.biorxiv.org/content/early/2024/07/16/2024.07.12.603190.full.pdf},
+	journal = {bioRxiv}
+}
+
