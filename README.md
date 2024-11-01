@@ -3,7 +3,9 @@
 A package of coding algorithm for rapid readout of digital information storage in DNA, inspired by [HEDGES](https://github.com/whpress/hedges) and [composite DNA letter](https://github.com/leon-anavy/dna-fountain).
 
 >Composite Hedges Nanopores is published in [Nature Communications](https://www.nature.com/articles/s41467-024-53455-3)
+>
 >Zhao, X., Li, J., Fan, Q. et al. Composite Hedges Nanopores codec system for rapid and portable DNA data readout with high INDEL-Correction. Nat Commun 15, 9395 (2024).
+>
 >https://doi.org/10.1038/s41467-024-53455-3
 ---
 
