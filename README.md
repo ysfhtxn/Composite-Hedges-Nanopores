@@ -142,15 +142,17 @@ Remember that the paths in the file above must be adjusted before decoding.
 ## Citation
 If you think this repository helps or inspires your study, please consider referring it. 😄
 ```bibtex
-@article {Zhao2024.07.12.603190,
-	author = {Zhao, Xuyang and Li, Junyao and Fan, Qingyuan and Dai, Jing and Long, Yanping and Liu, Ronghui and Zhai, Jixian and Pan, Qing and Li, Yi},
-	title = {Composite Hedges Nanopores: A High INDEL-Correcting Codec System for Rapid and Portable DNA Data Readout},
-	elocation-id = {2024.07.12.603190},
-	year = {2024},
-	doi = {10.1101/2024.07.12.603190},
-	publisher = {Cold Spring Harbor Laboratory},
-	URL = {https://www.biorxiv.org/content/early/2024/07/16/2024.07.12.603190},
-	eprint = {https://www.biorxiv.org/content/early/2024/07/16/2024.07.12.603190.full.pdf},
-	journal = {bioRxiv}
+@article{Zhao2024,
+  author = {Xuyang Zhao, Junyao Li and Qingyuan Fan and Jing Dai and Yanping Long and Ronghui Liu and Jixian Zhai and Qing Pan and Yi Li},
+  title = {Composite Hedges Nanopores codec system for rapid and portable DNA data readout with high INDEL-Correction},
+  journal = {Nature Communications},
+  volume = {15},
+  number = {1},
+  pages = {9395},
+  year = {2024},
+  doi = {10.1038/s41467-024-53455-3},
+  url = {https://doi.org/10.1038/s41467-024-53455-3},
+  abstract = {Reading digital information from highly dense but lightweight DNA medium nowadays relies on time-consuming next-generation sequencing. Nanopore sequencing holds the promise to overcome the efficiency problem, but high indel error rates lead to the requirement of large amount of high quality data for accurate readout. Here we introduce Composite Hedges Nanopores, capable of handling indel rates up to 15.9\% and substitution rates up to 7.8\%. The overall information density can be doubled from 0.59 to 1.17 by utilizing a degenerated eight-letter alphabet. We demonstrate that sequencing times of 20 and 120 minutes are sufficient for processing representative text and image files, respectively. Moreover, to achieve complete data recovery, it is estimated that text and image data require 4× and 8× physical redundancy of composite strands, respectively. Our codec system excels on both molecular design and equalized dictionary usage, laying a solid foundation approaching to real-time DNA data retrieval and encoding.},
+  issn = {2041-1723}
 }
 
