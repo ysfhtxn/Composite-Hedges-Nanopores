@@ -145,7 +145,7 @@ Remember that the paths in the file above must be adjusted before decoding.
 
 ---
 ## Citation
-If you think this repository helps or inspires your study, please consider referring it. 😄
+If you think this repository helps or inspires your study, please consider citing it. 😄
 ```bibtex
 @article{Zhao2024,
   author = {Xuyang Zhao, Junyao Li and Qingyuan Fan and Jing Dai and Yanping Long and Ronghui Liu and Jixian Zhai and Qing Pan and Yi Li},
