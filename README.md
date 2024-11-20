@@ -27,7 +27,9 @@ This will create a Python virtual environment in the `Composite-Hedges-Nanopores
 
 > [!NOTE]
 > You need to ensure the `MUSCLE` is downloaded and is set into the system PATH.
+> 
 > Furthermore, you should change the MUSCLE execution file name to `muscle` which the code call this name to run MUSCLE.
+> 
 > The detail of `MUSCLE` is in [MUSCLE](https://github.com/ysfhtxn/Composite-Hedges-Nanopores?tab=readme-ov-file#muscle) section
 ---
 
