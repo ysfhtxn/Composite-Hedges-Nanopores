@@ -26,11 +26,9 @@ $ conda env create -f environment.yml && conda activate CHN
 This will create a Python virtual environment in the `Composite-Hedges-Nanopores` folder. The installation should take less than **10 minutes** on a typical desktop pc, but maybe can take longer if an older pip version is used.
 
 > [!NOTE]
-> You need to ensure the `MUSCLE` is downloaded and is set into the system PATH.
-> 
-> Furthermore, you should change the MUSCLE execution file name to `muscle` which the code call this name to run MUSCLE.
-> 
-> The detail of `MUSCLE` is in [MUSCLE](https://github.com/ysfhtxn/Composite-Hedges-Nanopores?tab=readme-ov-file#muscle) section
+> You need to ensure the `MUSCLE` is downloaded and is set into the system PATH.  
+> Furthermore, you should change the MUSCLE execution file name to `muscle` which the code call this name to run MUSCLE.   
+> The detail of `MUSCLE` is in [MUSCLE](https://github.com/ysfhtxn/Composite-Hedges-Nanopores?tab=readme-ov-file#muscle) section.
 ---
 
 ## Usage
