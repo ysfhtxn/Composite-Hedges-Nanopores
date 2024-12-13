@@ -86,6 +86,8 @@ Please make sure that your environment has `MUSCLE`. This module can generate en
 
 After installing `MUSCLE`, make sure that it is placed in your system path.
 
+`MUSCLE v5.1` is recommended since other versions are not be tested.
+
 ### MMseqs2
 
 For clustering each replica of specific DNA sequence, `MMseqs2` is needed. See [https://github.com/soedinglab/MMseqs2](https://github.com/soedinglab/MMseqs2) for more details and license restrictions.
