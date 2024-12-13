@@ -141,7 +141,7 @@ To evaluate Composite-Hedges-Nanopores, we encoded the files sme introduction.tx
 $ cd CHN_invitro && python encode.py
 ```
 
-In order to reproduce the decoding of sequencing data, it must first be downloaded from the sequence read archive. The sequencing .fastq data has been deposited in the CNSA (https://db.cngb.org/cnsa/) of the CNGBdb with accession CNP0005551. 
+In order to reproduce the decoding of sequencing data, it must first be downloaded from the sequence read archive. The sequence data generated in this study also have been deposited in the sequence read archive with code SRR30397784 under Bioproject PRJNA1150371 and can be accessed without restriction.
 
 ```bash
 $ cd CHN_invitro && python mapping.py && python readsdic_gen.py && python seq_grouping.py && python decode.py
