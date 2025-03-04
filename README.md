@@ -14,13 +14,13 @@ A package of coding algorithm for rapid readout of digital information storage i
 First, clone the repository to a local directory:
 
 ```bash
-$ git clone https://github.com/ysfhtxn/Composite-Hedges-Nanopores.git
+$ git clone --recursive https://github.com/ysfhtxn/Composite-Hedges-Nanopores.git
 ```
 
 Then install required packages using the file [environment.yml](https://github.com/ysfhtxn/Composite-Hedges-Nanopores/blob/main/environment.yml):
 
 ```bash
-$ conda env create -f environment.yml && conda activate CHN
+$ conda env create -f new_env.yml && conda activate CHN
 ```
 
 This will create a Python virtual environment in the `Composite-Hedges-Nanopores` folder. The installation should take less than **10 minutes** on a typical desktop pc, but maybe can take longer if an older pip version is used.

@@ -1,0 +1,17 @@
+name: CHN
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.10
+  - numpy=1.25.0
+  - pandas=1.5.2
+  - scipy=1.9.3
+  - setuptools=65.5.0
+  - tqdm=4.67.1
+  - pip
+  - pip:
+      - Bio==1.7.1
+      - biopython>=1.80
+      - reedsolo==1.5.4
+      - terminaltables==3.1.10
