@@ -75,7 +75,9 @@ if __name__ == '__main__':
                 decode_fail_num += 1
                 fail_index.append(grouping_res_indx)
                 continue
-            txt_decode_res.append(rs_decode_res)
+            else:
+                txt_decode_res.append(rs_decode_res)
+                break
 
     end_time = time.time()
     print('Decoding finished.')
