@@ -52,7 +52,7 @@ if __name__ == '__main__':
             consensus_payload_with_anchors = consensus_str[57:-11]
             consensus_payload = consensus_payload_with_anchors[:40]+consensus_payload_with_anchors[45:85]+consensus_payload_with_anchors[90:130]+consensus_payload_with_anchors[135:]
             data = CHN.combine_to_letters(consensus_payload)
-            res = CHN.decode(data)
+            res = CHN.decode_c(data)
             # print('decode res nums: %d' % len(res))
             decode_vbits, min_penalty = CHN.hypo_backtrack(res)
             # print(len(decode_vbits),min_penalty)
