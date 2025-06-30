@@ -106,7 +106,7 @@ def mmseqs(grouping_res_path, c, min_seq_id, cov_mode, batch_size):
         print('No seq found, skip this index.\n')
         return 'A'*243
     
-    mmseqs_command = f'mmseqs easy-cluster {grouping_res_path} clusterRes tmp --min-seq-id {min_seq_id} -c {c} --cov-mode {cov_mode} --rescore-mode 3 --threads 24 > mmseqs2.log 2&>1'
+    mmseqs_command = f'mmseqs easy-cluster {grouping_res_path} clusterRes tmp --min-seq-id {min_seq_id} -c {c} --cov-mode {cov_mode} --rescore-mode 3 --threads 24 > mmseqs2.log 2>&1'
 
     os.system(command = mmseqs_command)
     
